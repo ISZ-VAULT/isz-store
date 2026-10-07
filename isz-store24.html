@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#07030f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>ISZ Store — اشتراكات وخدمات رقمية</title>
+<meta name="description" content="ISZ Store — متجرك العالمي للاشتراكات الرقمية والخدمات الرقمية. تسليم فوري وأسعار منافسة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --bg:#07030f; --bg2:#0c0518;
+  --card:rgba(30,16,54,.55); --card-solid:#150a2a; --card2:rgba(255,255,255,.05);
+  --gold:#f5c86e; --gold2:#e0a92e;
+  --purple:#8b5cf6; --royal:#5b21b6; --pink:#ff4ecd;
+  --text:#f6f1ff; --muted:#b6a6d6; --border:rgba(245,200,110,.18);
+  --grad:linear-gradient(135deg,#ffe08a 0%,#f0c04a 35%,#d99a2b 70%,#b3741a 100%);
+  --grad-neon:linear-gradient(135deg,#8b5cf6 0%,#c026d3 55%,#ff4ecd 100%);
+  --shadow-gold:0 10px 40px rgba(240,192,74,.22);
+  --shadow-neon:0 10px 40px rgba(139,92,246,.28);
+  --glass-blur:blur(18px) saturate(150%);
+}
+html[data-theme="light"]{
+  --bg:#f4effc; --bg2:#fbf8ff;
+  --card:rgba(255,255,255,.75); --card-solid:#ffffff; --card2:rgba(124,58,237,.08);
+  --text:#1d1033; --muted:#6f5f92; --border:rgba(91,33,182,.16);
+  --shadow-gold:0 10px 30px rgba(200,150,40,.28);
+  --shadow-neon:0 10px 30px rgba(139,92,246,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:'Cairo','Tajawal','Poppins','Inter',sans-serif;overflow-x:hidden;transition:background .4s,color .4s}
+html[lang="en"] body{font-family:'Poppins','Inter','Cairo','Tajawal',sans-serif}
+::selection{background:var(--gold);color:#000}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--gold),var(--purple));border-radius:10px}
+button, input, select, textarea{font-size:16px} /* prevents iOS auto-zoom */
+
+/* ---------- HEADER ---------- */
+header{position:fixed;top:0;inset-inline:0;z-index:900;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(7,3,15,.72);border-bottom:1px solid var(--border);transition:.4s;padding-top:env(safe-area-inset-top)}
+html[data-theme="light"] header{background:rgba(244,239,252,.82)}
+.header-inner{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px;gap:14px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-badge{width:46px;height:46px;border-radius:14px;background:var(--grad);background-size:220% 220%;animation:gradShift 5s ease infinite;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;color:#1a0b00;box-shadow:0 0 26px rgba(240,192,74,.45),var(--shadow-gold);position:relative;overflow:hidden}
+.logo-badge::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.6) 50%,transparent 70%);transform:translateX(-100%);animation:shine 3.5s infinite}
+@keyframes shine{60%{transform:translateX(100%)}100%{transform:translateX(100%)}}
+@keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.logo-text{font-size:22px;font-weight:800;letter-spacing:1px}
+.logo-text span{color:var(--gold)}
+.header-actions{display:flex;align-items:center;gap:10px}
+.icon-btn{width:44px;height:44px;border-radius:12px;border:1px solid var(--border);background:var(--card);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);color:var(--text);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:.3s;position:relative;font-weight:700;gap:4px}
+.icon-btn:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);box-shadow:0 0 22px rgba(240,192,74,.25)}
+.cart-count{position:absolute;top:-7px;inset-inline-end:-7px;background:var(--grad-neon);color:#fff;font-size:11px;font-weight:800;min-width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 5px;box-shadow:0 0 14px rgba(255,78,205,.5)}
+
+/* ---------- HERO ---------- */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;padding:150px 20px 90px;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:
+ radial-gradient(ellipse 60% 45% at 18% 12%,rgba(91,33,182,.32),transparent),
+ radial-gradient(ellipse 55% 42% at 85% 78%,rgba(255,78,205,.2),transparent),
+ radial-gradient(ellipse 42% 36% at 50% 108%,rgba(240,192,74,.16),transparent),
+ radial-gradient(ellipse 35% 30% at 70% 20%,rgba(79,172,254,.14),transparent)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(139,92,246,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,.08) 1px,transparent 1px);background-size:54px 54px;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 42%,#000 25%,transparent 78%);mask-image:radial-gradient(ellipse 70% 60% at 50% 42%,#000 25%,transparent 78%);pointer-events:none}
+#heroParticles{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.4;animation:float 9s ease-in-out infinite}
+.orb1{width:360px;height:360px;background:#5b21b6;top:6%;inset-inline-start:-100px}
+.orb2{width:320px;height:320px;background:#ff4ecd;bottom:4%;inset-inline-end:-80px;animation-delay:2s;opacity:.22}
+.orb3{width:240px;height:240px;background:#f0c04a;top:56%;inset-inline-start:34%;opacity:.16;animation-delay:4s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-35px)}}
+.hero-content{position:relative;z-index:2;max-width:860px}
+.hero-logo{width:116px;height:116px;margin:0 auto 28px;border-radius:32px;background:var(--grad);background-size:220% 220%;animation:gradShift 5s ease infinite,pulseGlow 3.4s ease-in-out infinite;display:flex;align-items:center;justify-content:center;font-size:46px;font-weight:900;color:#1a0b00;text-shadow:0 2px 0 rgba(255,255,255,.25)}
+@keyframes pulseGlow{0%,100%{box-shadow:0 20px 60px rgba(240,192,74,.4)}50%{box-shadow:0 20px 90px rgba(255,78,205,.4)}}
+.hero h1{font-size:clamp(34px,6vw,68px);font-weight:900;line-height:1.25;margin-bottom:18px}
+.hero h1 .grad-text{background:linear-gradient(135deg,#ffe9b0 0%,#f5c86e 40%,#e8963c 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 20px rgba(240,192,74,.35))}
+.hero p{font-size:clamp(16px,2.2vw,21px);color:var(--muted);max-width:640px;margin:0 auto 36px;line-height:1.8}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:56px}
+.btn{padding:15px 34px;border-radius:14px;font-weight:800;font-size:16px;cursor:pointer;border:none;transition:.3s;text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-family:inherit;min-height:48px}
+.btn-gold{background:var(--grad);color:#1a0b00;box-shadow:var(--shadow-gold)}
+.btn-gold:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 0 38px rgba(240,192,74,.5)}
+.btn-neon{background:var(--grad-neon);color:#fff;box-shadow:var(--shadow-neon)}
+.btn-neon:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 0 42px rgba(255,78,205,.45)}
+.btn-ghost{background:rgba(255,255,255,.04);color:var(--text);border:1px solid var(--border);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);box-shadow:0 0 26px rgba(240,192,74,.2)}
+.hero-stats{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.stat{background:var(--card);border:1px solid var(--border);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);border-radius:18px;padding:20px 34px;min-width:170px;transition:.3s}
+.stat:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:var(--shadow-gold)}
+.stat b{font-size:28px;color:var(--gold);display:block;text-shadow:0 0 22px rgba(240,192,74,.4)}
+.stat span{color:var(--muted);font-size:14px}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:var(--muted);animation:bounce 2s infinite;font-size:20px}
+@keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+
+/* ---------- SECTIONS ---------- */
+section{padding:90px 20px;position:relative}
+.container{max-width:1280px;margin:auto}
+.sec-head{text-align:center;margin-bottom:52px}
+.sec-tag{display:inline-block;background:rgba(139,92,246,.12);border:1px solid var(--border);color:var(--gold);padding:7px 20px;border-radius:30px;font-size:13px;font-weight:700;margin-bottom:16px}
+.sec-head h2{font-size:clamp(26px,4vw,42px);font-weight:900;margin-bottom:12px}
+.sec-head p{color:var(--muted);max-width:560px;margin:auto;line-height:1.8}
+
+/* ---------- OFFERS ---------- */
+.offer-end{color:var(--muted);text-align:center;margin-bottom:14px;font-weight:700}
+.countdown{display:flex;gap:14px;justify-content:center;margin-bottom:44px;flex-wrap:wrap}
+.cd-box{background:var(--card);border:1px solid var(--border);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);border-radius:16px;padding:14px 10px;min-width:86px;transition:.3s}
+.cd-box:hover{border-color:var(--gold);transform:translateY(-4px)}
+.cd-box b{font-size:30px;color:var(--gold);display:block;font-variant-numeric:tabular-nums;text-shadow:0 0 20px rgba(240,192,74,.45)}
+.cd-box span{font-size:12px;color:var(--muted)}
+.offers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:860px;margin:auto}
+.offer-card{border-radius:22px;padding:32px 28px;border:1px solid transparent}
+.offer-card.neon{background:linear-gradient(var(--card-solid),var(--card-solid)) padding-box,var(--grad-neon) border-box;box-shadow:var(--shadow-neon)}
+.offer-card.gold{background:linear-gradient(var(--card-solid),var(--card-solid)) padding-box,var(--grad) border-box;box-shadow:var(--shadow-gold)}
+.offer-card h3{font-size:22px;font-weight:900;margin-bottom:10px}
+.offer-card p{color:var(--muted);line-height:1.9;margin-bottom:18px}
+.code-chip{display:inline-block;background:var(--grad);color:#1a0b00;font-weight:900;padding:9px 22px;border-radius:10px;letter-spacing:2px;box-shadow:var(--shadow-gold)}
+
+/* ---------- GRID CARDS ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:24px}
+.card{background:var(--card);border:1px solid var(--border);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);border-radius:22px;padding:30px 26px;position:relative;overflow:hidden;transition:border-color .4s,box-shadow .4s;display:flex;flex-direction:column;transform-style:preserve-3d;will-change:transform}
+.card::before{content:'';position:absolute;top:0;inset-inline:0;height:3px;background:var(--grad-neon);opacity:0;transition:.4s}
+.card:hover{border-color:rgba(245,200,110,.45);box-shadow:0 24px 60px rgba(0,0,0,.4),0 0 34px rgba(139,92,246,.18)}
+.card:hover::before{opacity:1}
+.card.soon{opacity:.85}
+.badge{position:absolute;top:16px;inset-inline-start:16px;z-index:2;font-size:11px;font-weight:800;padding:5px 14px;border-radius:20px}
+.badge-hot{background:linear-gradient(135deg,#ff4e4e,#ff8a3d);color:#fff;box-shadow:0 4px 18px rgba(255,90,60,.5)}
+.badge-best{background:var(--grad);color:#1a0b00}
+.badge-premium{background:linear-gradient(135deg,#8b5cf6,#4facfe);color:#fff;box-shadow:0 4px 18px rgba(79,172,254,.4)}
+.soon-badge{position:absolute;top:16px;inset-inline-start:16px;background:var(--grad-neon);color:#fff;font-size:11px;font-weight:800;padding:5px 14px;border-radius:20px;z-index:2}
+.card-icon{width:64px;height:64px;border-radius:18px;background:var(--card2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:27px;margin-bottom:20px;color:var(--gold);transition:.4s}
+.card-icon svg{width:52px;height:52px;border-radius:12px;display:block}
+.card:hover .card-icon{background:var(--grad);color:#1a0b00;transform:rotate(-8deg) scale(1.08);box-shadow:var(--shadow-gold)}
+.card h3{font-size:20px;font-weight:800;margin-bottom:6px}
+.card .sub-type{font-size:12px;color:var(--muted);margin-bottom:12px;display:block}
+.card ul{list-style:none;margin:10px 0 18px;flex:1}
+.card ul li{color:var(--muted);font-size:14px;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start}
+.card ul li i{color:var(--gold);font-size:12px;margin-top:5px}
+.price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:18px}
+.price{font-size:28px;font-weight:900;color:var(--gold);text-shadow:0 0 18px rgba(240,192,74,.35)}
+.currency{color:var(--muted);font-size:14px;font-weight:700}
+.per{color:var(--muted);font-size:12px}
+.add-btn{width:100%;padding:14px;border-radius:12px;border:none;background:var(--grad);color:#1a0b00;font-weight:800;font-size:15px;cursor:pointer;transition:.3s;font-family:inherit;min-height:48px}
+.add-btn:hover{transform:scale(1.03);box-shadow:0 0 30px rgba(240,192,74,.5)}
+.add-btn:disabled{background:var(--card2);color:var(--muted);cursor:not-allowed;box-shadow:none}
+.quote-btn{width:100%;padding:14px;border-radius:12px;border:none;background:var(--grad-neon);color:#fff;font-weight:800;font-size:15px;cursor:pointer;transition:.3s;font-family:inherit;min-height:48px}
+.quote-btn:hover{transform:scale(1.03);box-shadow:0 0 32px rgba(255,78,205,.45)}
+
+/* ---------- FILTER BAR ---------- */
+.filter-chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}
+.chip{padding:10px 22px;border-radius:30px;border:1px solid var(--border);background:var(--card);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);color:var(--muted);font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;transition:.3s;min-height:44px}
+.chip:hover{color:var(--gold);border-color:var(--gold)}
+.chip.active{background:var(--grad-neon);color:#fff;border-color:transparent;box-shadow:var(--shadow-neon)}
+.filter-bar{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
+.filter-bar input,.filter-bar select{padding:13px 20px;border-radius:12px;border:1px solid var(--border);background:var(--card);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);color:var(--text);font-family:inherit;font-size:16px;outline:none;transition:.3s}
+.filter-bar input{min-width:250px}
+.filter-bar input:focus,.filter-bar select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(245,200,110,.14),0 0 24px rgba(240,192,74,.15)}
+.hidden-card{display:none!important}
+
+/* ---------- ABOUT ---------- */
+.about-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+.about-text h2{font-size:clamp(26px,3.6vw,40px);font-weight:900;margin-bottom:18px}
+.about-text p{color:var(--muted);line-height:2;margin-bottom:22px}
+.about-feats{display:flex;flex-direction:column;gap:14px}
+.about-feat{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--border);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);padding:18px 20px;border-radius:16px;transition:.3s}
+.about-feat:hover{transform:translateX(-6px);border-color:var(--gold);box-shadow:var(--shadow-gold)}
+html[dir="ltr"] .about-feat:hover{transform:translateX(6px)}
+.about-feat i{width:44px;height:44px;min-width:44px;border-radius:12px;background:var(--grad);color:#1a0b00;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:var(--shadow-gold)}
+.about-feat b{display:block;margin-bottom:4px}
+.about-feat span{color:var(--muted);font-size:14px}
+.about-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.big-logo{width:min(380px,80%);aspect-ratio:1;border-radius:50px;background:var(--card);border:1px solid var(--border);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-gold);animation:float 7s ease-in-out infinite}
+.big-logo div{width:72%;aspect-ratio:1;border-radius:36px;background:var(--grad);background-size:220% 220%;animation:gradShift 5s ease infinite;display:flex;align-items:center;justify-content:center;font-size:clamp(50px,8vw,90px);font-weight:900;color:#1a0b00;text-shadow:0 2px 0 rgba(255,255,255,.25)}
+.ring{position:absolute;border:2px dashed rgba(245,200,110,.3);border-radius:50%;animation:spin 22s linear infinite}
+.ring1{width:min(460px,95%);aspect-ratio:1}
+.ring2{width:min(540px,110%);aspect-ratio:1;animation-duration:34s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- TESTIMONIALS ---------- */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin-bottom:50px}
+.testi{background:var(--card);border:1px solid var(--border);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);border-radius:20px;padding:26px;transition:.3s;position:relative}
+.testi::after{content:'\201D';position:absolute;top:10px;inset-inline-end:22px;font-size:70px;color:var(--gold);opacity:.18;font-family:Georgia,serif;line-height:1}
+.testi:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:var(--shadow-gold)}
+.testi-stars{color:var(--gold);margin-bottom:14px;font-size:14px}
+.testi-stars .fa-regular{color:var(--muted);opacity:.5}
+.testi p{color:var(--muted);line-height:1.9;margin-bottom:18px;font-size:15px}
+.testi-user{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:44px;height:44px;border-radius:50%;background:var(--grad-neon);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+.testi-user b{display:block;font-size:15px}
+.testi-user span{color:var(--muted);font-size:12px}
+.add-testi{background:var(--card);border:1px dashed var(--border);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);border-radius:22px;padding:34px;max-width:640px;margin:auto}
+.add-testi h3{margin-bottom:20px;font-size:20px;display:flex;align-items:center;gap:10px}
+.add-testi h3 i{color:var(--gold)}
+.add-testi input,.add-testi textarea,.add-testi select{width:100%;padding:14px 18px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-family:inherit;font-size:16px;margin-bottom:14px;outline:none;transition:.3s;resize:vertical}
+.add-testi input:focus,.add-testi textarea:focus,.add-testi select:focus{border-color:var(--gold);box-shadow:0 0 20px rgba(240,192,74,.15)}
+.stars-label{color:var(--muted);font-size:14px;margin-bottom:6px;display:block}
+.stars-input{display:flex;gap:6px;margin-bottom:16px}
+.star-btn{background:none;border:none;font-size:26px;color:var(--muted);cursor:pointer;transition:.2s;padding:4px}
+.star-btn.on{color:var(--gold);text-shadow:0 0 14px rgba(245,200,110,.65);transform:scale(1.1)}
+
+/* ---------- FAQ ---------- */
+.faq-list{max-width:760px;margin:auto}
+.faq-item{background:var(--card);border:1px solid var(--border);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);border-radius:16px;margin-bottom:14px;overflow:hidden;transition:.3s}
+.faq-item.open{border-color:var(--gold);box-shadow:var(--shadow-gold)}
+.faq-q{width:100%;padding:20px 24px;background:none;border:none;color:var(--text);font-weight:700;font-size:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:start;font-family:inherit;min-height:44px}
+.faq-q i{color:var(--gold);transition:.35s}
+.faq-item.open .faq-q i{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-a p{padding:0 24px 22px;color:var(--muted);line-height:1.9}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 20px 26px;padding-bottom:calc(26px + env(safe-area-inset-bottom))}
+.footer-grid{max-width:1280px;margin:auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px}
+.footer-grid h4{margin-bottom:18px;font-size:17px;color:var(--gold)}
+.footer-grid ul{list-style:none}
+.footer-grid li{margin-bottom:11px}
+.footer-grid a{color:var(--muted);text-decoration:none;transition:.3s;font-size:14px}
+.footer-grid a:hover{color:var(--gold);padding-inline-start:6px}
+.footer-desc{color:var(--muted);font-size:14px;line-height:1.9;margin-top:14px;max-width:300px}
+.socials{display:flex;gap:12px;margin-top:20px}
+.socials a{width:44px;height:44px;border-radius:12px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:.3s;font-size:17px}
+.socials a:hover{background:var(--grad);color:#1a0b00;transform:translateY(-4px);box-shadow:var(--shadow-gold)}
+.copy{max-width:1280px;margin:auto;border-top:1px solid var(--border);padding-top:24px;text-align:center;color:var(--muted);font-size:13px}
+
+/* ---------- DRAWERS ---------- */
+.overlay{position:fixed;inset:0;background:rgba(3,1,8,.7);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:950;opacity:0;pointer-events:none;transition:.35s}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;bottom:0;width:min(380px,88vw);background:var(--bg2);z-index:960;transition:transform .4s cubic-bezier(.22,1,.36,1);display:flex;flex-direction:column;border-inline:1px solid var(--border);right:0;transform:translateX(100%);padding-top:env(safe-area-inset-top)}
+html[dir="ltr"] .drawer{right:auto;left:0;transform:translateX(-100%)}
+.drawer.show{transform:translateX(0)!important}
+.drawer-head{padding:22px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.drawer-head h3{font-size:18px}
+.drawer-close{background:none;border:none;color:var(--text);font-size:20px;cursor:pointer;transition:.3s;width:44px;height:44px}
+.drawer-close:hover{color:var(--gold);transform:rotate(90deg)}
+.drawer-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:20px 24px}
+.menu-link{display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:14px;color:var(--text);text-decoration:none;font-weight:700;margin-bottom:8px;transition:.3s;border:1px solid transparent;min-height:44px}
+.menu-link i{width:38px;height:38px;min-width:38px;border-radius:11px;background:var(--card2);display:flex;align-items:center;justify-content:center;color:var(--gold);transition:.3s}
+.menu-link:hover,.menu-link.active{background:var(--card);border-color:var(--border);padding-inline-start:26px}
+.menu-link:hover i{background:var(--grad);color:#1a0b00}
+.cart-item{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 16px;margin-bottom:12px;animation:fadeIn .3s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.cart-item-info b{display:block;font-size:15px}
+.cart-item-info span{color:var(--gold);font-weight:800;font-size:14px}
+.cart-remove{background:none;border:none;color:#ff5c7a;cursor:pointer;font-size:16px;transition:.3s;width:44px;height:44px}
+.cart-remove:hover{transform:scale(1.25)}
+.qty-wrap{display:flex;flex-direction:column;align-items:center;gap:8px}
+.qty-ctrl{display:flex;align-items:center;gap:2px;background:var(--card2);border:1px solid var(--border);border-radius:11px;overflow:hidden}
+.qty-btn{width:32px;height:32px;border:none;background:transparent;color:var(--gold);font-size:16px;font-weight:800;cursor:pointer;transition:.25s;display:flex;align-items:center;justify-content:center;font-family:inherit}
+.qty-btn:hover{background:var(--card);transform:scale(1.12)}
+.qty-val{min-width:28px;text-align:center;font-weight:900;font-size:15px}
+.checkout-btn.disabled{pointer-events:none;background:var(--card2);color:var(--muted);box-shadow:none}
+.cart-empty{text-align:center;color:var(--muted);padding:50px 10px}
+.cart-empty i{font-size:44px;margin-bottom:14px;display:block;opacity:.4}
+.discount-box{margin-top:18px}
+.discount-box input{width:100%;padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--card);color:var(--text);font-family:inherit;font-size:16px;outline:none;margin-bottom:10px;text-align:center;letter-spacing:2px;font-weight:700}
+.discount-box button{width:100%;padding:13px;border-radius:12px;border:1px solid var(--border);background:var(--card2);color:var(--text);font-weight:700;cursor:pointer;font-family:inherit;transition:.3s;min-height:44px}
+.discount-box button:hover{border-color:var(--gold);color:var(--gold)}
+.code-msg{font-size:13px;margin-top:10px;text-align:center;min-height:18px;font-weight:700}
+.code-msg.ok{color:#34d399}.code-msg.err{color:#ff5c7a}
+.drawer-foot{padding:20px 24px;border-top:1px solid var(--border);padding-bottom:calc(20px + env(safe-area-inset-bottom))}
+.total-row{display:flex;justify-content:space-between;font-size:16px;margin-bottom:8px;color:var(--muted)}
+.total-row.grand{font-size:19px;font-weight:900;color:var(--text);margin:12px 0 16px}
+.checkout-btn{width:100%;padding:15px;border-radius:14px;border:none;background:#25d366;color:#fff;font-weight:800;font-size:16px;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;gap:10px;font-family:inherit;min-height:50px}
+.checkout-btn:hover{transform:scale(1.02);box-shadow:0 12px 34px rgba(37,211,102,.35)}
+.checkout-btn:disabled{background:var(--card2);color:var(--muted);cursor:not-allowed;box-shadow:none}
+
+/* ---------- TOAST / SCROLL TOP ---------- */
+.toast{position:fixed;bottom:calc(28px + env(safe-area-inset-bottom));left:50%;transform:translate(-50%,140px);background:var(--grad);color:#1a0b00;padding:14px 28px;border-radius:14px;font-weight:800;z-index:1000;transition:transform .4s cubic-bezier(.22,1,.36,1);box-shadow:var(--shadow-gold);display:flex;align-items:center;gap:10px;white-space:nowrap;max-width:92vw}
+.toast.show{transform:translate(-50%,0)}
+#scrollTop{position:fixed;bottom:calc(26px + env(safe-area-inset-bottom));inset-inline-end:26px;width:48px;height:48px;border-radius:14px;background:var(--grad);color:#1a0b00;border:none;font-size:18px;cursor:pointer;z-index:800;opacity:0;pointer-events:none;transition:.35s;box-shadow:var(--shadow-gold)}
+#scrollTop.show{opacity:1;pointer-events:auto}
+#scrollTop:hover{transform:translateY(-5px)}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:960px){
+  .about-wrap{grid-template-columns:1fr}
+  .about-visual{order:-1}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  section{padding:64px 16px}
+  .header-inner{padding:12px 14px}
+  .logo-text{font-size:18px}
+  .footer-grid{grid-template-columns:1fr}
+  .stat{min-width:calc(50% - 10px);padding:16px}
+  .hero-btns .btn{width:100%;justify-content:center}
+  .filter-bar input{min-width:0;width:100%}
+  .grid{grid-template-columns:1fr}
+  .offers-grid{grid-template-columns:1fr}
+  .cd-box{min-width:74px}
+  .cd-box b{font-size:24px}
+}
+@media(max-width:380px){
+  .grid{grid-template-columns:1fr}
+  .icon-btn{width:42px;height:42px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="header-inner">
+    <a href="#home" class="logo">
+      <div class="logo-badge">ISZ</div>
+      <div class="logo-text">ISZ <span data-i18n="store">Store</span></div>
+    </a>
+    <div class="header-actions">
+      <button class="icon-btn" id="langToggle" title="Language" style="width:auto;padding:0 14px"><i class="fa-solid fa-globe"></i> <b id="langLabel" style="font-size:13px">English</b></button>
+      <button class="icon-btn" id="themeToggle" title="Theme"><i class="fa-solid fa-moon" id="themeIcon"></i></button>
+      <button class="icon-btn" id="cartBtn" title="Cart"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count" id="cartCount">0</span></button>
+      <button class="icon-btn" id="menuBtn" title="Menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <canvas id="heroParticles"></canvas>
+  <div class="hero-orb orb1"></div><div class="hero-orb orb2"></div><div class="hero-orb orb3"></div>
+  <div class="hero-content">
+    <div class="hero-logo">ISZ</div>
+    <h1 data-i18n-html="heroTitle"><span class="grad-text">عالمك الرقمي</span> يبدأ من هنا</h1>
+    <p data-i18n="heroDesc">متجر ISZ — اشتراكات رقمية عالمية موثوقة وخدمات احترافية، بتسليم فوري وأسعار منافسة تفتح النفس.</p>
+    <div class="hero-btns">
+      <a href="#subscriptions" class="btn btn-gold"><i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="heroBtn1">تصفح الاشتراكات</span></a>
+      <a href="https://wa.me/213798691866" target="_blank" class="btn btn-ghost"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="heroBtn2">تواصل معنا</span></a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b data-i18n="stat1n">+2</b><span data-i18n="stat1">سنوات خبرة</span></div>
+      <div class="stat"><b data-i18n="stat2n">+1000</b><span data-i18n="stat2">عميل سعيد</span></div>
+      <div class="stat"><b data-i18n="stat3n">24/7</b><span data-i18n="stat3">تسليم فوري</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><i class="fa-solid fa-chevron-down"></i></div>
+</section>
+
+<!-- ============ OFFERS ============ -->
+<section id="offers" style="background:var(--bg2);padding-top:70px;padding-bottom:70px">
+  <div class="container">
+    <div class="sec-head reveal" style="margin-bottom:28px">
+      <span class="sec-tag" data-i18n="offersTag">عروض حصرية</span>
+      <h2 data-i18n="offersTitle">عروض تكسر السوق — لا تفوّتها</h2>
+      <p data-i18n="offerEnd">⏳ ينتهي العرض خلال</p>
+    </div>
+    <div class="countdown reveal" id="countdown">
+      <div class="cd-box"><b id="cdD">00</b><span data-i18n="days">يوم</span></div>
+      <div class="cd-box"><b id="cdH">00</b><span data-i18n="hours">ساعة</span></div>
+      <div class="cd-box"><b id="cdM">00</b><span data-i18n="mins">دقيقة</span></div>
+      <div class="cd-box"><b id="cdS">00</b><span data-i18n="secs">ثانية</span></div>
+    </div>
+    <div class="offers-grid reveal">
+      <div class="offer-card gold">
+        <h3 data-i18n="offer1t">خصم 20% على طلبك</h3>
+        <p data-i18n="offer1d">على أي طلب يحتوي منتجين أو أكثر — طبّق الكود في سلة الشراء.</p>
+        <span class="code-chip">ISZ20</span>
+      </div>
+      <div class="offer-card neon">
+        <h3 data-i18n="offer2t">باقة الترفيه الكاملة</h3>
+        <p data-i18n="offer2d">Netflix + IPTV معًا بسعر خاص جدًا — اسألنا الآن.</p>
+        <a href="https://wa.me/213798691866?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20ISZ%20Store%20%F0%9F%91%8B%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%AA%D8%B1%D9%81%D9%8A%D9%87%20(Netflix%20%2B%20IPTV)" target="_blank" class="btn btn-neon" style="font-size:14px;padding:12px 24px"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="offer2btn">اسأل عن الباقة</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="container about-wrap">
+    <div class="about-text reveal">
+      <span class="sec-tag" data-i18n="aboutTag">من نحن</span>
+      <h2 data-i18n-html="aboutTitle">ISZ Store — <span style="color:var(--gold)">ثقتك</span> في العالم الرقمي</h2>
+      <p data-i18n="aboutDesc">ISZ Store هو متجرك الرقمي الموثوق لاشتراكات المنصات العالمية والخدمات الاحترافية. نخدم عملاءنا منذ أكثر من سنتين بجودة عالية، تسليم فوري، وأسعار تنافسية حقيقية.</p>
+      <div class="about-feats">
+        <div class="about-feat"><i class="fa-solid fa-shield-halved"></i><div><b data-i18n="af1t">خبرة سنتين في المجال</b><span data-i18n="af1d">سجل حافل من الثقة والالتزام مع آلاف العملاء.</span></div></div>
+        <div class="about-feat"><i class="fa-solid fa-earth-americas"></i><div><b data-i18n="af2t">اشتراكات عالمية موثوقة</b><span data-i18n="af2d">حسابات واشتراكات حقيقية 100% من مصادر رسمية.</span></div></div>
+        <div class="about-feat"><i class="fa-solid fa-bolt"></i><div><b data-i18n="af3t">تسليم فوري وأسعار منافسة</b><span data-i18n="af3d">استلم طلبك خلال دقائق عبر واتساب، وبأفضل سعر.</span></div></div>
+      </div>
+    </div>
+    <div class="about-visual reveal">
+      <div class="ring ring1"></div><div class="ring ring2"></div>
+      <div class="big-logo"><div>ISZ</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUBSCRIPTIONS ============ -->
+<section id="subscriptions" style="background:var(--bg2)">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag" data-i18n="subTag">الاشتراكات الرقمية</span>
+      <h2 data-i18n="subTitle">اشتراكات عالمية بأسعار تفتح النفس</h2>
+      <p data-i18n="subDesc">جميع المنصات العالمية في مكان واحد — Netflix, Disney+, CapCut Pro وأكثر.</p>
+    </div>
+    <div class="filter-chips reveal" id="filterChips">
+      <button class="chip active" data-f="all" data-i18n="fAll">الكل</button>
+      <button class="chip" data-f="sub" data-i18n="fSubsC">اشتراكات</button>
+      <button class="chip" data-f="srv" data-i18n="fSrvC">خدمات</button>
+      <button class="chip" data-f="soon" data-i18n="fSoon">قريبًا</button>
+    </div>
+    <div class="filter-bar reveal">
+      <input type="text" id="searchInput" data-i18n-ph="searchPh" placeholder="🔍 ابحث عن اشتراك أو خدمة...">
+      <select id="sortSelect">
+        <option value="default" data-i18n="sortDefault">الترتيب الافتراضي</option>
+        <option value="low" data-i18n="sortLow">السعر: من الأقل للأعلى</option>
+        <option value="high" data-i18n="sortHigh">السعر: من الأعلى للأقل</option>
+      </select>
+    </div>
+    <div class="grid" id="subGrid"></div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag" data-i18n="srvTag">الخدمات الرقمية</span>
+      <h2 data-i18n="srvTitle">خدمات احترافية تصنع الفرق</h2>
+      <p data-i18n="srvDesc">من العروض التقديمية إلى المواقع الكاملة — ننجزها لك بإتقان.</p>
+    </div>
+    <div class="grid" id="srvGrid"></div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="testimonials" style="background:var(--bg2)">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag" data-i18n="tstTag">آراء العملاء</span>
+      <h2 data-i18n="tstTitle">كلام زبائننا يتكلم عنا</h2>
+      <p data-i18n="tstDesc">تجارب حقيقية من عملاء حقيقيين.</p>
+    </div>
+    <div class="testi-grid" id="testiGrid"></div>
+    <div class="add-testi reveal">
+      <h3><i class="fa-solid fa-pen"></i> <span data-i18n="addTstTitle">أضف رأيك</span></h3>
+      <input type="text" id="tstName" data-i18n-ph="tstNamePh" placeholder="اسمك">
+      <input type="text" id="tstService" data-i18n-ph="tstServicePh" placeholder="الخدمة / المادة (مثال: Netflix, PowerPoint)">
+      <span class="stars-label" data-i18n="yourRating">تقييمك</span>
+      <div class="stars-input" id="starsInput"></div>
+      <textarea id="tstText" rows="3" data-i18n-ph="tstTextPh" placeholder="اكتب رأيك هنا..."></textarea>
+      <button class="btn btn-gold" style="width:100%;justify-content:center" id="addTstBtn"><i class="fa-solid fa-plus"></i> <span data-i18n="addTstBtn">أضف رأيي</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-tag" data-i18n="faqTag">الأسئلة الشائعة</span>
+      <h2 data-i18n="faqTitle">عندك سؤال؟ عندنا الجواب</h2>
+    </div>
+    <div class="faq-list reveal" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section style="text-align:center">
+  <div class="container reveal">
+    <h2 style="font-size:clamp(24px,4vw,40px);font-weight:900;margin-bottom:14px" data-i18n="ctaTitle">جاهز تبدأ؟ كلمنا الآن</h2>
+    <p style="color:var(--muted);margin-bottom:30px" data-i18n="ctaDesc">فريق ISZ جاهز يخدمك على مدار الساعة.</p>
+    <a href="https://wa.me/213798691866" target="_blank" class="btn btn-neon" style="font-size:18px;padding:17px 44px"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="ctaBtn">تواصل عبر واتساب</span></a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="#home" class="logo"><div class="logo-badge">ISZ</div><div class="logo-text">ISZ <span data-i18n="store">Store</span></div></a>
+      <p class="footer-desc" data-i18n="footerDesc">متجرك العالمي للاشتراكات والخدمات الرقمية — جودة، سرعة، وثقة منذ سنتين.</p>
+      <div class="socials">
+        <a href="https://wa.me/213798691866" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://instagram.com/v_7enx" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+    <div>
+      <h4 data-i18n="fLinks">روابط سريعة</h4>
+      <ul>
+        <li><a href="#home" data-i18n="mHome">الرئيسية</a></li>
+        <li><a href="#subscriptions" data-i18n="mSubs">الاشتراكات الرقمية</a></li>
+        <li><a href="#services" data-i18n="mSrv">الخدمات الرقمية</a></li>
+        <li><a href="#testimonials" data-i18n="mTst">آراء العملاء</a></li>
+        <li><a href="#faq" data-i18n="mFaq">الأسئلة الشائعة</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="fSubs">الاشتراكات</h4>
+      <ul>
+        <li><a href="#subscriptions">Netflix</a></li>
+        <li><a href="#subscriptions">Disney+</a></li>
+        <li><a href="#subscriptions">CapCut Pro</a></li>
+        <li><a href="#subscriptions">Xbox Game Pass</a></li>
+        <li><a href="#subscriptions">IPTV</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="fContact">تواصل معنا</h4>
+      <ul>
+        <li><a href="https://wa.me/213798691866" target="_blank"><i class="fa-brands fa-whatsapp" style="color:#25d366"></i> +213 798 69 18 66</a></li>
+        <li><a href="https://instagram.com/v_7enx" target="_blank"><i class="fa-brands fa-instagram" style="color:#e1306c"></i> v_7enx</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copy"><span data-i18n="copy">© 2026 ISZ Store — جميع الحقوق محفوظة</span></div>
+</footer>
+
+<!-- ============ OVERLAY & DRAWERS ============ -->
+<div class="overlay" id="overlay"></div>
+
+<div class="drawer drawer-menu" id="menuDrawer">
+  <div class="drawer-head"><h3 data-i18n="menuTitle">القائمة</h3><button class="drawer-close" data-close><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="drawer-body">
+    <a href="#home" class="menu-link" data-nav><i class="fa-solid fa-house"></i> <span data-i18n="mHome">الرئيسية</span></a>
+    <a href="#offers" class="menu-link" data-nav><i class="fa-solid fa-tags"></i> <span data-i18n="offersTag">عروض حصرية</span></a>
+    <a href="#subscriptions" class="menu-link" data-nav><i class="fa-solid fa-gem"></i> <span data-i18n="mSubs">الاشتراكات الرقمية</span></a>
+    <a href="#services" class="menu-link" data-nav><i class="fa-solid fa-palette"></i> <span data-i18n="mSrv">الخدمات الرقمية</span></a>
+    <a href="#testimonials" class="menu-link" data-nav><i class="fa-solid fa-star"></i> <span data-i18n="mTst">آراء العملاء</span></a>
+    <a href="#faq" class="menu-link" data-nav><i class="fa-solid fa-circle-question"></i> <span data-i18n="mFaq">الأسئلة الشائعة</span></a>
+    <a href="https://wa.me/213798691866" target="_blank" class="menu-link"><i class="fa-solid fa-comment-dots" style="color:#25d366"></i> <span data-i18n="mContact">تواصل معنا</span></a>
+    <a href="#" class="menu-link" id="menuCartLink"><i class="fa-solid fa-cart-shopping"></i> <span data-i18n="mCart">سلة الشراء</span> <span class="cart-count" style="position:static;margin-inline-start:auto" id="cartCount2">0</span></a>
+  </div>
+</div>
+
+<div class="drawer drawer-cart" id="cartDrawer">
+  <div class="drawer-head"><h3><i class="fa-solid fa-cart-shopping" style="color:var(--gold)"></i> <span data-i18n="cartTitle">سلة الشراء</span></h3><button class="drawer-close" data-close><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="drawer-body">
+    <div id="cartItems"></div>
+    <div class="discount-box" id="discountBox">
+      <input type="text" id="discountInput" data-i18n-ph="codePh" placeholder="كود التخفيض">
+      <button id="applyCode" data-i18n="applyCode">تطبيق الكود</button>
+      <div class="code-msg" id="codeMsg"></div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <div class="total-row"><span data-i18n="subtotal">المجموع الفرعي</span><b id="subTotal">0 دج</b></div>
+    <div class="total-row" id="discountRow" style="display:none;color:#34d399"><span data-i18n="discount">الخصم (ISZ20)</span><b id="discountVal">-0 دج</b></div>
+    <div class="total-row grand"><span data-i18n="total">المجموع الإجمالي</span><b id="grandTotal" style="color:var(--gold)">0 دج</b></div>
+    <a class="checkout-btn" id="checkoutBtn" href="#" target="_blank" rel="noopener" style="text-decoration:none"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="checkout">إتمام الشراء عبر واتساب</span></a>
+  </div>
+</div>
+
+<div class="toast" id="toast"><i class="fa-solid fa-check-circle"></i> <span id="toastMsg"></span></div>
+<button id="scrollTop" title="Top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script>
+/* ================= DATA ================= */
+const WHATSAPP = '213798691866';
+/* Discount code stored obfuscated (Base64) — decodes to ISZ20 at runtime */
+const DISCOUNT_CODE = atob('SVNaMjA=');
+const PRODUCTS = [
+ {id:'netflix', price:400, icon:'fa-tv', type:'sub', badge:'hot', feats:{ar:['حساب أصلي مضمون','جودة HD / 4K','تفعيل فوري'],en:['Guaranteed original account','HD / 4K quality','Instant activation']}},
+ {id:'disney', price:600, icon:'fa-wand-magic-sparkles', type:'sub', feats:{ar:['محتوى عالمي حصري','جودة عالية','جميع الأجهزة'],en:['Exclusive global content','High quality','All devices']}},
+ {id:'appletv', price:900, icon:'fa-apple', type:'sub', feats:{ar:['محتوى Apple الأصلي','جودة 4K','مشاركة عائلية'],en:['Apple original content','4K quality','Family sharing']}},
+ {id:'capcut', price:1000, icon:'fa-scissors', type:'sub', badge:'best', feats:{ar:['كل المميزات Pro','بدون علامة مائية','تصدير 4K'],en:['All Pro features','No watermark','4K export']}},
+ {id:'xbox', price:1200, icon:'fa-gamepad', type:'sub', badge:'hot', feats:{ar:['مئات الألعاب','ألعاب جديدة شهريًا','على الجوال والكمبيوتر'],en:['Hundreds of games','New games monthly','Mobile & PC']}},
+ {id:'vpn', price:400, icon:'fa-shield-halved', type:'sub', feats:{ar:['خصوية وأمان كامل','سرعة فائقة','سيرفرات عالمية'],en:['Full privacy & security','Super speed','Global servers']}},
+ {id:'prime', price:900, icon:'fa-video', type:'sub', feats:{ar:['محتوى Amazon حصري','جودة 4K','مسلسلات وأفلام حصرية'],en:['Exclusive Amazon content','4K quality','Exclusive movies & series']}},
+ {id:'iptv', price:700, icon:'fa-satellite-dish', type:'sub', badge:'premium', feats:{ar:['+10000 قناة عالمية','جودة FHD','دعم جميع الأجهزة'],en:['+10,000 global channels','FHD quality','All devices supported']}},
+ {id:'shahid', price:0, icon:'fa-clapperboard', type:'sub', soon:true, feats:{ar:['قريبًا جدًا...','تابعنا لأول إشعار'],en:['Coming very soon...','Follow us for updates']}},
+ {id:'osn', price:0, icon:'fa-film', type:'sub', soon:true, feats:{ar:['قريبًا جدًا...','تابعنا لأول إشعار'],en:['Coming very soon...','Follow us for updates']}},
+];
+const SERVICES = [
+ {id:'ppt', price:500, icon:'fa-file-powerpoint', type:'srv', feats:{ar:['تصميم احترافي مؤثر','تسليم سريع','تعديلات مجانية'],en:['Professional impactful design','Fast delivery','Free revisions']}},
+ {id:'word', price:400, icon:'fa-file-word', type:'srv', feats:{ar:['تنسيق احترافي كامل','جداول وتقارير','تسليم سريع'],en:['Full professional formatting','Tables & reports','Fast delivery']}},
+ {id:'canva', price:600, icon:'fa-palette', type:'srv', feats:{ar:['Canva Pro كامل','عناصر احترافية','مشاريع بلا حدود'],en:['Full Canva Pro','Professional elements','Unlimited projects']}},
+ {id:'website', price:null, icon:'fa-laptop-code', type:'srv', feats:{ar:['تصميم عصري متجاوب','مواقع شركات ومحلات','دعم وتطوير مستمر'],en:['Modern responsive design','Company & shop websites','Ongoing support']}},
+];
+/* Inline SVG brand-style tiles for subscriptions */
+const LOGOS = {
+ netflix:'<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="11" fill="#e50914"/><text x="24" y="33" text-anchor="middle" font-size="26" font-weight="900" fill="#fff" font-family="Arial,Helvetica,sans-serif">N</text></svg>',
+ disney:'<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="11" fill="#101c54"/><text x="24" y="31" text-anchor="middle" font-size="22" font-weight="800" fill="#fff" font-family="Arial,Helvetica,sans-serif">D<tspan font-size="13" dy="-6">+</tspan></text></svg>',
+ appletv:'<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="11" fill="#151515"/><path d="M31.6 13.4c.5 2.3-1.3 4.9-3.8 5.3-.5-2.3 1.4-4.9 3.8-5.3z" fill="#fff"/><path d="M27.8 19.5c-1.6 0-2.3-.9-3.9-.9s-2.4.9-3.9.9c-2.3 0-4.3 1.4-5.5 3.6-2.3 4.2-1 11.1 2.7 13.4 1.3.8 2.6.7 3.7.2 1-.4 1.7-1.3 3-.9 1.2.3 1.8 1 3 .9 1.3-.1 2.2-.7 3.1-1.6.9-.9 1.5-2 1.7-3.1-2.3-1.1-3.7-3.4-3.7-5.9 0-2 1.1-3.8 2.7-4.9-1.2-.9-2.6-1.3-3.9-1.1z" fill="#fff"/></svg>',
+ capcut:'<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="11" fill="#0a0a0a"/><circle cx="18" cy="32" r="4.5" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="29" cy="32" r="4.5" fill="none" stroke="#fff" stroke-width="2.6"/><path d="M21.4 28.8 33 12M25.6 28.8 14 12" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>',
+ xbox:'<svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#107c10"/><path d="M14.5 14.5l19 19M33.5 14.5l-19 19" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>',
+ vpn:'<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="11" fill="#4f46e5"/><path d="M24 8l13 5v9c0 8.5-5.6 14.6-13 18-7.4-3.4-13-9.5-13-18v-9z" fill="#fff" opacity=".92"/><circle cx="24" cy="22" r="4.5" fill="#4f46e5"/><path d="M24 25v6" stroke="#4f46e5" stroke-width="3" stroke-linecap="round"/></svg>',
+ prime:'<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="11" fill="#00a8e1"/><text x="24" y="22" text-anchor="middle" font-size="15" font-weight="800" fill="#fff" font-family="Arial,Helvetica,sans-serif">prime</text><path d="M11 27q13 9 26 1" stroke="#fff" stroke-width="2.8" fill="none" stroke-linecap="round"/><path d="M33 32.5l7-4.5-8-2" fill="#fff"/></svg>',
+ iptv:'<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="11" fill="#7c3aed"/><path d="M14 34a13 13 0 0 1 20-20" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M24 24l9 11" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="35" cy="13" r="3.2" fill="#fff"/></svg>'
+};
+const DEFAULT_TESTIMONIALS = [
+ {name:'يوسف.ب', service:'PowerPoint', text:'صمملي والله باور بوينت مطرطق، صحيت والله أديت نقطة كومبلي، صحيت ISZ 🔥', rating:5, lang:'ar'},
+ {name:'الحاج مراد', service:'تصميم موقع — مول سوبيرات', text:'خدمة ممتازة، صمملي موقع مول السوبيرات وحتى جاب لي زبائن، ربي يبارك فيك يا ISZ', rating:5, lang:'ar'},
+ {name:'أمينة.ك', service:'Netflix', text:'تفلكس بأرخص سعر وخدمة سريعة، تسليم فوري بلا ما نتعب، شكرًا ISZ', rating:5, lang:'ar'},
+];
+const FAQS = [
+ {q:{ar:'كم مدة الاشتراك؟',en:'How long is the subscription?'}, a:{ar:'شهر واحد، ويمكن التمديد حسب الطلب.',en:'One month, extendable on request.'}},
+ {q:{ar:'كيف أستلم اشتراكي؟',en:'How do I receive my subscription?'}, a:{ar:'عبر واتساب فور تأكيد الدفع.',en:'Via WhatsApp right after payment confirmation.'}},
+ {q:{ar:'هل الأسعار ثابتة؟',en:'Are prices fixed?'}, a:{ar:'نعم، مع عروض دورية.',en:'Yes, with periodic offers.'}},
+ {q:{ar:'ما هي طرق الدفع؟',en:'What payment methods are available?'}, a:{ar:'يتم الاتفاق عبر واتساب.',en:'Payment is arranged via WhatsApp.'}},
+];
+
+/* ================= I18N ================= */
+const T = {
+ar:{
+ store:'Store', heroTitle:'<span class="grad-text">عالمك الرقمي</span> يبدأ من هنا',
+ heroDesc:'متجر ISZ — اشتراكات رقمية عالمية موثوقة وخدمات احترافية، بتسليم فوري وأسعار منافسة تفتح النفس.',
+ heroBtn1:'تصفح الاشتراكات', heroBtn2:'تواصل معنا', stat1n:'+2', stat1:'سنوات خبرة', stat2n:'+1000', stat2:'عميل سعيد', stat3n:'24/7', stat3:'تسليم فوري',
+ offersTag:'عروض حصرية', offersTitle:'عروض تكسر السوق — لا تفوّتها', offerEnd:'⏳ ينتهي العرض خلال',
+ days:'يوم', hours:'ساعة', mins:'دقيقة', secs:'ثانية',
+ offer1t:'خصم 20% على طلبك', offer1d:'على أي طلب يحتوي منتجين أو أكثر — طبّق الكود في سلة الشراء.',
+ offer2t:'باقة الترفيه الكاملة', offer2d:'Netflix + IPTV معًا بسعر خاص جدًا — اسألنا الآن.', offer2btn:'اسأل عن الباقة',
+ aboutTag:'من نحن', aboutTitle:'ISZ Store — <span style="color:var(--gold)">ثقتك</span> في العالم الرقمي',
+ aboutDesc:'ISZ Store هو متجرك الرقمي الموثوق لاشتراكات المنصات العالمية والخدمات الاحترافية. نخدم عملاءنا منذ أكثر من سنتين بجودة عالية، تسليم فوري، وأسعار تنافسية حقيقية.',
+ af1t:'خبرة سنتين في المجال', af1d:'سجل حافل من الثقة والالتزام مع آلاف العملاء.',
+ af2t:'اشتراكات عالمية موثوقة', af2d:'حسابات واشتراكات حقيقية 100% من مصادر رسمية.',
+ af3t:'تسليم فوري وأسعار منافسة', af3d:'استلم طلبك خلال دقائق عبر واتساب، وبأفضل سعر.',
+ subTag:'الاشتراكات الرقمية', subTitle:'اشتراكات عالمية بأسعار تفتح النفس', subDesc:'جميع المنصات العالمية في مكان واحد — Netflix, Disney+, CapCut Pro وأكثر.',
+ fAll:'الكل', fSubsC:'اشتراكات', fSrvC:'خدمات', fSoon:'قريبًا',
+ searchPh:'🔍 ابحث عن اشتراك أو خدمة...', sortDefault:'الترتيب الافتراضي', sortLow:'السعر: من الأقل للأعلى', sortHigh:'السعر: من الأعلى للأقل',
+ srvTag:'الخدمات الرقمية', srvTitle:'خدمات احترافية تصنع الفرق', srvDesc:'من العروض التقديمية إلى المواقع الكاملة — ننجزها لك بإتقان.',
+ tstTag:'آراء العملاء', tstTitle:'كلام زبائننا يتكلم عنا', tstDesc:'تجارب حقيقية من عملاء حقيقيين.',
+ addTstTitle:'أضف رأيك', tstNamePh:'اسمك', tstServicePh:'الخدمة / المادة (مثال: Netflix, PowerPoint)', tstTextPh:'اكتب رأيك هنا...', addTstBtn:'أضف رأيي', yourRating:'تقييمك',
+ faqTag:'الأسئلة الشائعة', faqTitle:'عندك سؤال؟ عندنا الجواب',
+ ctaTitle:'جاهز تبدأ؟ كلمنا الآن', ctaDesc:'فريق ISZ جاهز يخدمك على مدار الساعة.', ctaBtn:'تواصل عبر واتساب',
+ footerDesc:'متجرك العالمي للاشتراكات والخدمات الرقمية — جودة، سرعة، وثقة منذ سنتين.',
+ fLinks:'روابط سريعة', fSubs:'الاشتراكات', fContact:'تواصل معنا',
+ mHome:'الرئيسية', mSubs:'الاشتراكات الرقمية', mSrv:'الخدمات الرقمية', mTst:'آراء العملاء', mFaq:'الأسئلة الشائعة', mContact:'تواصل معنا', mCart:'سلة الشراء',
+ menuTitle:'القائمة', cartTitle:'سلة الشراء', codePh:'كود التخفيض', applyCode:'تطبيق الكود',
+ subtotal:'المجموع الفرعي', discount:'الخصم (ISZ20)', total:'المجموع الإجمالي', checkout:'إتمام الشراء عبر واتساب',
+ addToCart:'أضف إلى السلة', soon:'قريبًا', quote:'اطلب عرض سعر', month:'/ شهر', dz:'دج',
+ addedToast:'تمت الإضافة إلى السلة ✅', extraAdded:'تمت إضافة نسخة إضافية ✅', dupToast:'هذا المنتج موجود في السلة مسبقًا 🛒', cartEmpty:'سلتك فارغة', cartEmptySub:'أضف منتجات وابدأ التسوق 🛒',
+ codeApplied:'تم تطبيق الكود بنجاح! خصم 20%', codeNeedTwo:'الكود يعمل عند شراء منتجين أو أكثر', codeInvalid:'الكود غير صالح',
+ errFill:'يرجى ملء جميع الحقول', testiThanks:'شكرًا! تمت إضافة رأيك ⭐',
+ badges:{hot:'🔥 Hot', best:'⭐ Best Seller', premium:'💎 Premium'},
+ names:{netflix:'Netflix',disney:'Disney+',appletv:'Apple TV+',capcut:'CapCut Pro',xbox:'Xbox Game Pass',vpn:'VPN',prime:'Amazon Prime Video',iptv:'IPTV',shahid:'Shahid VIP',osn:'OSN+',ppt:'PowerPoint',word:'Word',canva:'Canva',website:'تصميم موقع للشركات والمحلات'},
+ quoteMsg:'مرحبًا ISZ Store 👋\nأريد طلب عرض سعر لخدمة: تصميم موقع للشركات والمحلات.\nشكرًا!',
+ copy:'© 2026 ISZ Store — جميع الحقوق محفوظة'
+},
+en:{
+ store:'Store', heroTitle:'<span class="grad-text">Your digital world</span> starts here',
+ heroDesc:'ISZ Store — trusted global digital subscriptions and professional services, instant delivery and unbeatable prices.',
+ heroBtn1:'Browse Subscriptions', heroBtn2:'Contact Us', stat1n:'+2', stat1:'Years Experience', stat2n:'+1000', stat2:'Happy Clients', stat3n:'24/7', stat3:'Instant Delivery',
+ offersTag:'Exclusive Offers', offersTitle:'Incredible offers — don\'t miss them', offerEnd:'⏳ Offer ends in',
+ days:'Days', hours:'Hours', mins:'Mins', secs:'Secs',
+ offer1t:'20% off your order', offer1d:'On any order with 2+ items — apply the code in the cart.',
+ offer2t:'Full Entertainment Bundle', offer2d:'Netflix + IPTV together at a very special price — ask us now.', offer2btn:'Ask about the bundle',
+ aboutTag:'About Us', aboutTitle:'ISZ Store — <span style="color:var(--gold)">Your trust</span> in the digital world',
+ aboutDesc:'ISZ Store is your trusted digital store for global platform subscriptions and professional services. We have served clients for over two years with high quality, instant delivery, and truly competitive prices.',
+ af1t:'Two years of experience', af1d:'A proven record of trust with thousands of clients.',
+ af2t:'Trusted global subscriptions', af2d:'100% real accounts from official sources.',
+ af3t:'Instant delivery & best prices', af3d:'Receive your order within minutes via WhatsApp.',
+ subTag:'Digital Subscriptions', subTitle:'Global subscriptions at irresistible prices', subDesc:'All global platforms in one place — Netflix, Disney+, CapCut Pro and more.',
+ fAll:'All', fSubsC:'Subscriptions', fSrvC:'Services', fSoon:'Coming Soon',
+ searchPh:'🔍 Search subscriptions or services...', sortDefault:'Default order', sortLow:'Price: Low to High', sortHigh:'Price: High to Low',
+ srvTag:'Digital Services', srvTitle:'Professional services that make a difference', srvDesc:'From presentations to full websites — done with excellence.',
+ tstTag:'Testimonials', tstTitle:'Our clients speak for us', tstDesc:'Real experiences from real clients.',
+ addTstTitle:'Add Your Review', tstNamePh:'Your name', tstServicePh:'Service / Subject (e.g. Netflix, PowerPoint)', tstTextPh:'Write your review here...', addTstBtn:'Submit Review', yourRating:'Your rating',
+ faqTag:'FAQ', faqTitle:'Got a question? We have the answer',
+ ctaTitle:'Ready to start? Contact us now', ctaDesc:'The ISZ team is ready to serve you 24/7.', ctaBtn:'Chat on WhatsApp',
+ footerDesc:'Your global store for subscriptions and digital services — quality, speed, and trust for two years.',
+ fLinks:'Quick Links', fSubs:'Subscriptions', fContact:'Contact',
+ mHome:'Home', mSubs:'Subscriptions', mSrv:'Services', mTst:'Testimonials', mFaq:'FAQ', mContact:'Contact Us', mCart:'Cart',
+ menuTitle:'Menu', cartTitle:'Shopping Cart', codePh:'Discount code', applyCode:'Apply Code',
+ subtotal:'Subtotal', discount:'Discount (ISZ20)', total:'Grand Total', checkout:'Checkout via WhatsApp',
+ addToCart:'Add to Cart', soon:'Coming Soon', quote:'Request a Quote', month:'/ month', dz:'DZD',
+ addedToast:'Added to cart ✅', extraAdded:'Extra copy added ✅', dupToast:'This item is already in your cart 🛒', cartEmpty:'Your cart is empty', cartEmptySub:'Add products and start shopping 🛒',
+ codeApplied:'Code applied! 20% off', codeNeedTwo:'Code works with 2+ items', codeInvalid:'Invalid code',
+ errFill:'Please fill in all fields', testiThanks:'Thanks! Your review was added ⭐',
+ badges:{hot:'🔥 Hot', best:'⭐ Best Seller', premium:'💎 Premium'},
+ names:{netflix:'Netflix',disney:'Disney+',appletv:'Apple TV+',capcut:'CapCut Pro',xbox:'Xbox Game Pass',vpn:'VPN',prime:'Amazon Prime Video',iptv:'IPTV',shahid:'Shahid VIP',osn:'OSN+',ppt:'PowerPoint',word:'Word',canva:'Canva',website:'Website design for companies & shops'},
+ quoteMsg:'Hello ISZ Store 👋\nI would like a price quote for: Website design for companies & shops.\nThank you!',
+ copy:'© 2026 ISZ Store — All rights reserved'
+}};
+
+let lang = localStorage.getItem('isz_lang') || 'ar';
+const t = k => T[lang][k] || k;
+const fmt = n => n.toLocaleString('en-US') + ' ' + t('dz');
+
+/* ================= THEME ================= */
+let theme = localStorage.getItem('isz_theme') || 'dark';
+function applyTheme(){
+  document.documentElement.setAttribute('data-theme', theme);
+  document.getElementById('themeIcon').className = theme==='dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+}
+document.getElementById('themeToggle').onclick = () => {
+  theme = theme==='dark' ? 'light' : 'dark';
+  localStorage.setItem('isz_theme', theme); applyTheme();
+};
+applyTheme();
+
+/* ================= RENDER PRODUCTS ================= */
+function productCard(p){
+  const soon = p.soon;
+  const feats = p.feats[lang].map(f=>`<li><i class="fa-solid fa-check"></i>${f}</li>`).join('');
+  const priceHtml = p.price
+    ? `<div class="price-row"><span class="price">${p.price}</span><span class="currency">${t('dz')}</span><span class="per">${t('month')}</span></div>`
+    : `<div class="price-row"><span class="price" style="font-size:19px;color:var(--muted)">${lang==='ar'?'السعر بعد التقييم':'Price on request'}</span></div>`;
+  const btn = soon
+    ? `<button class="add-btn" disabled>🔒 ${t('soon')}</button>`
+    : p.price===null
+      ? `<button class="quote-btn" onclick="requestQuote()"><i class="fa-solid fa-paper-plane"></i> ${t('quote')}</button>`
+      : `<button class="add-btn" onclick="addToCart('${p.id}')"><i class="fa-solid fa-cart-plus"></i> ${t('addToCart')}</button>`;
+  const badgeHtml = soon
+    ? `<span class="soon-badge">🔥 ${t('soon')}</span>`
+    : p.badge ? `<span class="badge badge-${p.badge}">${t('badges')[p.badge]}</span>` : '';
+  const iconHtml = LOGOS[p.id]
+    ? `<div class="card-icon">${LOGOS[p.id]}</div>`
+    : `<div class="card-icon"><i class="fa-solid ${p.icon}"></i></div>`;
+  return `<div class="card ${soon?'soon':''} reveal visible" data-type="${p.type}" data-soon="${soon?'1':'0'}" data-name="${t('names')[p.id].toLowerCase()}" data-price="${p.price||0}">
+    ${badgeHtml}${iconHtml}
+    <h3>${t('names')[p.id]}</h3>
+    <span class="sub-type">${p.type==='sub'?(lang==='ar'?'اشتراك رقمي':'Digital Subscription'):(lang==='ar'?'خدمة رقمية':'Digital Service')}</span>
+    <ul>${feats}</ul>${priceHtml}${btn}</div>`;
+}
+function renderProducts(){
+  document.getElementById('subGrid').innerHTML = PRODUCTS.map(productCard).join('');
+  document.getElementById('srvGrid').innerHTML = SERVICES.map(productCard).join('');
+  initTilt();
+}
+
+/* ================= 3D CARD TILT ================= */
+function initTilt(){
+  if(window.matchMedia('(hover: none)').matches) return;
+  document.querySelectorAll('.card').forEach(card=>{
+    if(card.dataset.tilt) return; card.dataset.tilt='1';
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      card.style.transition='transform .12s ease-out';
+      card.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${(-y*10)}deg) translateY(-8px)`;
+    });
+    card.addEventListener('mouseleave',()=>{
+      card.style.transition='transform .5s ease';
+      card.style.transform='';
+    });
+  });
+}
+
+/* ================= CART ================= */
+let cart = JSON.parse(localStorage.getItem('isz_cart')||'[]');
+/* Migrate legacy format (plain array of ids) -> [{id, qty}] */
+cart = cart.map(x => (typeof x === 'string') ? {id:x, qty:1} : x);
+/* Discount flag persists across refresh */
+let discountApplied = localStorage.getItem('isz_discount')==='1';
+function saveCart(){ localStorage.setItem('isz_cart', JSON.stringify(cart)); }
+function saveDiscount(){ localStorage.setItem('isz_discount', discountApplied ? '1' : '0'); }
+function allProducts(){ return [...PRODUCTS, ...SERVICES]; }
+function getP(id){ return allProducts().find(p=>p.id===id); }
+
+function addToCart(id){
+  const item = cart.find(c=>c.id===id);
+  if(item){ item.qty++; toast(t('extraAdded')); } /* increment quantity instead of blocking */
+  else { cart.push({id, qty:1}); toast(t('addedToast')); }
+  saveCart(); renderCart();
+  const c = document.getElementById('cartBtn');
+  c.style.transform='scale(1.25)'; setTimeout(()=>c.style.transform='',250);
+}
+function changeQty(id, delta){
+  const item = cart.find(c=>c.id===id); if(!item) return;
+  item.qty += delta;
+  if(item.qty < 1) cart = cart.filter(c=>c.id!==id);
+  saveCart(); renderCart();
+}
+function removeFromCart(id){ cart = cart.filter(c=>c.id!==id); saveCart(); renderCart(); }
+function cartTotal(){ return cart.reduce((s,it)=>s+(getP(it.id)?.price||0)*it.qty,0); }
+function cartQty(){ return cart.reduce((s,it)=>s+it.qty,0); }
+
+function renderCart(){
+  const items = document.getElementById('cartItems');
+  const qtySum = cartQty();
+  document.getElementById('cartCount').textContent = qtySum;
+  document.getElementById('cartCount2').textContent = qtySum;
+  if(!cart.length){
+    items.innerHTML = `<div class="cart-empty"><i class="fa-solid fa-cart-shopping"></i><b>${t('cartEmpty')}</b><p style="font-size:13px;margin-top:8px">${t('cartEmptySub')}</p></div>`;
+  } else {
+    items.innerHTML = cart.map(it=>{
+      const p = getP(it.id), line = p.price*it.qty;
+      return `<div class="cart-item"><div class="cart-item-info"><b>${t('names')[it.id]}</b><span>${fmt(p.price)} × ${it.qty} = ${fmt(line)}</span></div><div class="qty-wrap"><div class="qty-ctrl"><button class="qty-btn" onclick="changeQty('${it.id}',-1)" aria-label="decrease">−</button><span class="qty-val">${it.qty}</span><button class="qty-btn" onclick="changeQty('${it.id}',1)" aria-label="increase">+</button></div><button class="cart-remove" onclick="removeFromCart('${it.id}')" aria-label="remove" style="width:32px;height:28px;font-size:13px"><i class="fa-solid fa-trash"></i></button></div></div>`;
+    }).join('');
+  }
+  const sub = cartTotal();
+  /* Auto-activates when a 2nd item is added after the code was applied */
+  let total = sub, disc = 0;
+  if(discountApplied && cart.length>=2){ disc = Math.round(sub*0.20); total = sub-disc; }
+  const msg = document.getElementById('codeMsg');
+  if(discountApplied){
+    if(cart.length>=2){ msg.textContent = t('codeApplied'); msg.className='code-msg ok'; }
+    else if(cart.length===1){ msg.textContent = t('codeNeedTwo'); msg.className='code-msg err'; }
+  }
+  document.getElementById('subTotal').textContent = fmt(sub);
+  document.getElementById('discountRow').style.display = disc ? 'flex' : 'none';
+  document.getElementById('discountVal').textContent = '-' + fmt(disc);
+  document.getElementById('grandTotal').textContent = fmt(total);
+  const ckBtn = document.getElementById('checkoutBtn');
+  ckBtn.classList.toggle('disabled', !cart.length);
+  ckBtn.href = cart.length ? buildCheckoutHref(sub, disc) : '#'; /* real wa.me href — opens in any browser */
+}
+
+/* Discount code: ISZ20 = 20% off, only with 2+ items (code stored obfuscated) */
+document.getElementById('applyCode').onclick = () => {
+  const code = document.getElementById('discountInput').value.trim().toUpperCase();
+  const msg = document.getElementById('codeMsg');
+  if(code === DISCOUNT_CODE){
+    if(cart.length >= 2){ discountApplied = true; saveDiscount(); msg.textContent = t('codeApplied'); msg.className='code-msg ok'; }
+    else { discountApplied = false; saveDiscount(); msg.textContent = t('codeNeedTwo'); msg.className='code-msg err'; }
+  } else { discountApplied = false; saveDiscount(); msg.textContent = t('codeInvalid'); msg.className='code-msg err'; }
+  renderCart();
+};
+
+/* WhatsApp checkout — builds a real wa.me href (works from any browser, new tab) */
+function buildCheckoutHref(sub, disc){
+  const lines = cart.map((it,i)=>{ const p=getP(it.id); return `${i+1}. ${t('names')[it.id]} ×${it.qty} — ${p.price*it.qty} ${t('dz')}`; });
+  let total = sub - disc;
+  let msg = (lang==='ar'
+    ? `مرحبًا ISZ Store 👋
+أريد إتمام طلبي:
+
+${lines.join('\n')}
+
+المجموع: ${sub} ${t('dz')}`
+    : `Hello ISZ Store 👋
+I would like to complete my order:
+
+${lines.join('\n')}
+
+Subtotal: ${sub} ${t('dz')}`);
+  if(disc) msg += (lang==='ar' ? `
+خصم ISZ20: -${disc} ${t('dz')}` : `
+ISZ20 discount: -${disc} ${t('dz')}`);
+  msg += (lang==='ar' ? `
+المجموع النهائي: ${total} ${t('dz')}
+شكرًا!` : `
+Total: ${total} ${t('dz')}
+Thank you!`);
+  return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+}
+function requestQuote(){
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t('quoteMsg'))}`,'_blank');
+}
+
+/* ================= TESTIMONIALS (with star rating) ================= */
+let currentRating = 5;
+function buildStarsInput(){
+  const el = document.getElementById('starsInput');
+  el.innerHTML = [1,2,3,4,5].map(i=>`<button type="button" class="star-btn ${i<=currentRating?'on':''}" data-v="${i}" aria-label="${i} stars"><i class="fa-solid fa-star"></i></button>`).join('');
+  const highlight = v => el.querySelectorAll('.star-btn').forEach(b=>b.classList.toggle('on', +b.dataset.v<=v));
+  el.querySelectorAll('.star-btn').forEach(b=>{
+    b.onclick = ()=>{ currentRating = +b.dataset.v; buildStarsInput(); };
+    b.onmouseenter = ()=>highlight(+b.dataset.v);
+  });
+  el.onmouseleave = ()=>highlight(currentRating);
+}
+function getTestimonials(){
+  const extra = JSON.parse(localStorage.getItem('isz_testi')||'[]');
+  return [...DEFAULT_TESTIMONIALS, ...extra];
+}
+function renderTestimonials(){
+  document.getElementById('testiGrid').innerHTML = getTestimonials().map(x=>{
+    const r = x.rating || 5;
+    const stars = [1,2,3,4,5].map(i=>`<i class="${i<=r?'fa-solid':'fa-regular'} fa-star"></i>`).join('');
+    return `
+    <div class="testi reveal visible">
+      <div class="testi-stars">${stars}</div>
+      <p>${x.text}</p>
+      <div class="testi-user"><div class="testi-avatar">${x.name.trim()[0]||'?'}</div><div><b>${x.name}</b><span>${x.service}</span></div></div>
+    </div>`;
+  }).join('');
+}
+document.getElementById('addTstBtn').onclick = () => {
+  const n=document.getElementById('tstName').value.trim(),
+        s=document.getElementById('tstService').value.trim(),
+        x=document.getElementById('tstText').value.trim();
+  if(!n||!s||!x){ toast(t('errFill')); return; }
+  const extra = JSON.parse(localStorage.getItem('isz_testi')||'[]');
+  extra.push({name:n, service:s, text:x, rating:currentRating});
+  localStorage.setItem('isz_testi', JSON.stringify(extra));
+  document.getElementById('tstName').value='';
+  document.getElementById('tstService').value='';
+  document.getElementById('tstText').value='';
+  currentRating = 5; buildStarsInput();
+  renderTestimonials(); toast(t('testiThanks'));
+};
+
+/* ================= FAQ ================= */
+function renderFaq(){
+  document.getElementById('faqList').innerHTML = FAQS.map((f,i)=>`
+    <div class="faq-item ${i===0?'open':''}">
+      <button class="faq-q">${f.q[lang]} <i class="fa-solid fa-chevron-down"></i></button>
+      <div class="faq-a"><p>${f.a[lang]}</p></div>
+    </div>`).join('');
+  document.querySelectorAll('.faq-q').forEach(btn=>{
+    btn.onclick = () => {
+      const item = btn.parentElement, wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(x=>{x.classList.remove('open'); x.querySelector('.faq-a').style.maxHeight=null;});
+      if(!wasOpen){ item.classList.add('open'); const a=item.querySelector('.faq-a'); a.style.maxHeight=a.scrollHeight+'px'; }
+    };
+  });
+  const first=document.querySelector('.faq-item.open .faq-a'); if(first) first.style.maxHeight=first.scrollHeight+'px';
+}
+
+/* ================= FILTER (chips + search) & SORT ================= */
+let currentFilter = 'all';
+function applyFilters(){
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  document.querySelectorAll('#subGrid .card, #srvGrid .card').forEach(c=>{
+    let show = true;
+    if(currentFilter==='sub' && c.dataset.type!=='sub') show=false;
+    if(currentFilter==='srv' && c.dataset.type!=='srv') show=false;
+    if(currentFilter==='soon' && c.dataset.soon!=='1') show=false;
+    if(q && !c.dataset.name.includes(q)) show=false;
+    c.classList.toggle('hidden-card', !show);
+  });
+  const subsVisible = [...document.getElementById('subGrid').children].some(c=>!c.classList.contains('hidden-card'));
+  const srvVisible  = [...document.getElementById('srvGrid').children].some(c=>!c.classList.contains('hidden-card'));
+  document.getElementById('subscriptions').style.display = subsVisible ? '' : 'none';
+  document.getElementById('services').style.display = srvVisible ? '' : 'none';
+}
+document.querySelectorAll('#filterChips .chip').forEach(chip=>{
+  chip.onclick = () => {
+    currentFilter = chip.dataset.f;
+    document.querySelectorAll('#filterChips .chip').forEach(c=>c.classList.toggle('active', c===chip));
+    applyFilters();
+  };
+});
+document.getElementById('searchInput').addEventListener('input', applyFilters);
+document.getElementById('sortSelect').addEventListener('change', e=>{
+  ['subGrid','srvGrid'].forEach(gid=>{
+    const grid=document.getElementById(gid);
+    const cards=[...grid.children].filter(c=>!c.classList.contains('soon'));
+    const soonCards=[...grid.children].filter(c=>c.classList.contains('soon'));
+    cards.sort((a,b)=> e.target.value==='low' ? a.dataset.price-b.dataset.price : e.target.value==='high' ? b.dataset.price-a.dataset.price : 0);
+    cards.forEach(c=>grid.appendChild(c)); soonCards.forEach(c=>grid.appendChild(c));
+  });
+});
+
+/* ================= DRAWERS ================= */
+const overlay=document.getElementById('overlay'),
+      menuDrawer=document.getElementById('menuDrawer'),
+      cartDrawer=document.getElementById('cartDrawer');
+function openDrawer(d){ d.classList.add('show'); overlay.classList.add('show'); document.body.style.overflow='hidden'; }
+function closeDrawers(){ menuDrawer.classList.remove('show'); cartDrawer.classList.remove('show'); overlay.classList.remove('show'); document.body.style.overflow=''; }
+document.getElementById('menuBtn').onclick = ()=>openDrawer(menuDrawer);
+document.getElementById('cartBtn').onclick = ()=>openDrawer(cartDrawer);
+document.getElementById('menuCartLink').onclick = e=>{ e.preventDefault(); closeDrawers(); setTimeout(()=>openDrawer(cartDrawer),150); };
+overlay.onclick = closeDrawers;
+document.querySelectorAll('[data-close]').forEach(b=>b.onclick=closeDrawers);
+document.querySelectorAll('[data-nav]').forEach(a=>a.addEventListener('click',closeDrawers));
+
+/* ================= TOAST ================= */
+let toastTimer;
+function toast(msg){
+  const el=document.getElementById('toast');
+  document.getElementById('toastMsg').textContent=msg;
+  el.classList.add('show'); clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>el.classList.remove('show'),2400);
+}
+
+/* ================= COUNTDOWN (rolling 72h offer) ================= */
+function offerDeadline(){
+  let d = +localStorage.getItem('isz_offer_end') || 0;
+  if(!d || d < Date.now()){ d = Date.now() + 72*3600*1000; localStorage.setItem('isz_offer_end', d); }
+  return d;
+}
+function tickCountdown(){
+  let diff = offerDeadline() - Date.now();
+  if(diff < 0){ localStorage.setItem('isz_offer_end', Date.now() + 72*3600*1000); diff = 72*3600*1000; }
+  const d=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000), m=Math.floor(diff%3600000/60000), s=Math.floor(diff%60000/1000);
+  document.getElementById('cdD').textContent=String(d).padStart(2,'0');
+  document.getElementById('cdH').textContent=String(h).padStart(2,'0');
+  document.getElementById('cdM').textContent=String(m).padStart(2,'0');
+  document.getElementById('cdS').textContent=String(s).padStart(2,'0');
+}
+tickCountdown(); setInterval(tickCountdown, 1000);
+
+/* ================= PARTICLES ================= */
+(function(){
+  const canvas = document.getElementById('heroParticles'); if(!canvas) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const ctx = canvas.getContext('2d'); let W, H, ps = [], raf;
+  const COLORS = ['245,200,110','139,92,246','255,78,205','79,172,254'];
+  function resize(){
+    const dpr = Math.min(window.devicePixelRatio||1, 2);
+    W = canvas.offsetWidth; H = canvas.offsetHeight;
+    canvas.width = W*dpr; canvas.height = H*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    const n = Math.min(70, Math.floor(W*H/18000));
+    ps = Array.from({length:n},()=>({
+      x:Math.random()*W, y:Math.random()*H,
+      vx:(Math.random()-.5)*.35, vy:(Math.random()-.5)*.35,
+      r:Math.random()*1.8+.6,
+      c:COLORS[(Math.random()*COLORS.length)|0]
+    }));
+  }
+  function step(){
+    ctx.clearRect(0,0,W,H);
+    for(const p of ps){
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;
+      if(p.y<0||p.y>H)p.vy*=-1;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,7);
+      ctx.fillStyle=`rgba(${p.c},.8)`; ctx.fill();
+    }
+    for(let i=0;i<ps.length;i++)for(let j=i+1;j<ps.length;j++){
+      const a=ps[i],b=ps[j],dx=a.x-b.x,dy=a.y-b.y,d=dx*dx+dy*dy;
+      if(d<12100){
+        ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
+        ctx.strokeStyle=`rgba(180,140,255,${.14*(1-d/12100)})`; ctx.lineWidth=1; ctx.stroke();
+      }
+    }
+    raf=requestAnimationFrame(step);
+  }
+  resize(); window.addEventListener('resize',resize);
+  document.addEventListener('visibilitychange',()=>{ if(document.hidden){cancelAnimationFrame(raf);} else {step();} });
+  step();
+})();
+
+/* ================= SCROLL TOP & REVEAL ================= */
+const scrollBtn=document.getElementById('scrollTop');
+window.addEventListener('scroll',()=>scrollBtn.classList.toggle('show',scrollY>500));
+scrollBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.12});
+function initReveal(){ document.querySelectorAll('.reveal:not(.visible)').forEach(el=>io.observe(el)); }
+
+/* ================= LANGUAGE ================= */
+function applyLang(){
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang==='ar' ? 'rtl' : 'ltr';
+  document.getElementById('langLabel').textContent = lang==='ar' ? 'English' : 'العربية';
+  document.title = lang==='ar' ? 'ISZ Store — اشتراكات وخدمات رقمية' : 'ISZ Store — Digital Subscriptions & Services';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{ el.innerHTML = t(el.dataset.i18nHtml); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{ el.placeholder = t(el.dataset.i18nPh); });
+  renderProducts(); renderCart(); renderTestimonials(); renderFaq(); applyFilters();
+}
+document.getElementById('langToggle').onclick = () => {
+  lang = lang==='ar' ? 'en' : 'ar';
+  localStorage.setItem('isz_lang', lang); applyLang();
+};
+
+/* ================= INIT ================= */
+buildStarsInput();
+applyLang(); renderCart(); initReveal();
+</script>
+</body>
+</html>
